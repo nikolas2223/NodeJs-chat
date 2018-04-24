@@ -17,15 +17,19 @@ var echoRoom = [];
       ws.send(msg);
     });                             echo
   });*/
+  app.get('/', function (req, res) {
+    res.sendfile('public/index.html');
+  });
+
   app.ws('/echo', function(ws, req) {
       echoRoom.push(ws);
       ws.on('message',function(msg){
-        console.log(msg+' '+echoRoom.length);
-        echoRoom.forEach(clientEcho=>clientEcho.send(msg+' '+echoRoom.length));
+        console.log(msg+' '+echoRoom.length+' in ECHO');
+        echoRoom.forEach(clientEcho=>clientEcho.send(msg));
         //expressWs.getWss().clients.forEach(client => client.send(msg));
     });
-    ws.on('close', function() {
-        console.log('The connection in echoRoom was closed!');
+    ws.on('close', function(statusCode,reason) {
+        console.log('The connection in echoRoom was closed!'+' REASON: '+reason);
         for (var i = 0; i < echoRoom.length; i++) {
             console.log(i);
             if(echoRoom[i] == ws) 
@@ -45,12 +49,12 @@ app.ws('/',function(ws,req){
     //connectionTest = ws;
     mainRoom.push(ws);
     ws.on('message',function(msg){
-        console.log(msg+' '+mainRoom.length);
-        mainRoom.forEach(clientMain=>clientMain.send(msg+' '+mainRoom.length));
+        console.log(msg+' '+mainRoom.length+' in main');
+        mainRoom.forEach(clientMain=>clientMain.send(msg));
         //expressWs.getWss().clients.forEach(client => client.send(msg));
     });
-    ws.on('close', function() {
-        console.log('The connection in mainRoom was closed!');
+    ws.on('close', function(statusCode,reason) {
+        console.log('The connection in mainRoom was closed!'+' REASON: '+reason);
         for (var i = 0; i < mainRoom.length; i++) {
             console.log(i);
             if(mainRoom[i] == ws) 
@@ -62,7 +66,6 @@ app.ws('/',function(ws,req){
             }
         }
     });
-
 });
 
 app.listen(3000,function(){

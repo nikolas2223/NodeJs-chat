@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+*{
+    margin: 0;
+}
+
+.roomName{
+    text-decoration: none;
+    color:rgb(206, 100, 255);
+    padding-left: 25%;
+    padding-right: 25%;
+}
+.roomName:hover{
+    background: rgb(235, 192, 113);
+    border-radius: 5px;
+
+}
+
+body{
+    background:black;
+}
+
+.content{
+    margin-top: 20px;
+    margin-left: 0%;
+    width: 50%;
+}
+
+#mgs{
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
+    background: white;
+    float: left;
+    display: block;
+    width: 80%;
+    height: 80%;
+    margin-bottom: 10px;
+}
+
+.rooms{
+    width: 20%;    
+    height: 80%;
+    background: rgb(196, 196, 196);
+    float: left;
+}
+
+input[type="text"]{
+    display: inline-block;
+    width: 45%;
+}
+input[type="button"]{
+    display: inline-block;
+    width: 5%;
+}
