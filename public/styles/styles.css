@@ -17,13 +17,29 @@
 }
 
 body{
-    background:black;
+    background:rgb(255, 255, 255);
+    height: 100%;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+span::selection{
+    background: rgba(28, 238, 175, 0.473);
 }
 
 .content{
-    margin-top: 20px;
-    margin-left: 0%;
+    /*margin-top: 20px;*/
+    margin-left: 24%;
+    margin-right: 24%;
     width: 50%;
+    height: 80%;
+    /*position: absolute;  !IMPORTANT! CSS 2.1 pt 10.5.*/
+    display: block;
+    border-left: 2px solid black;
+    border-radius: 0px;
+    float: left;
+}
+#mgs::selection{
+    background: rgba(28, 238, 175, 0.473);
 }
 
 #mgs{
@@ -31,25 +47,71 @@ body{
     font-weight: bold;
     font-family: 'Fira Sans', sans-serif;
     background: white;
-    float: left;
     display: block;
     width: 80%;
     height: 80%;
-    margin-bottom: 10px;
+    float: left;
+    border-right: 2px solid black;
+    padding-top: 20px;
 }
 
 .rooms{
-    width: 20%;    
-    height: 80%;
-    background: rgb(196, 196, 196);
+    margin-top:20px;
+    margin-left: 41%;
+    width: 9%;    
+    height: 100%;
+    background: rgb(255, 255, 255);
+    float: left;
+    position: fixed;
+   /* border-left: 2px solid black;*/
+}
+
+.inputs{
+    margin-top: 10px;
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-bottom: 20px;
+    width: 50%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    position: sticky;
     float: left;
 }
 
 input[type="text"]{
     display: inline-block;
-    width: 45%;
+    width: 79%;
+    height: 30px;
+    border: 2px solid black;
+    font-family: 'Fira Sans', sans-serif;
+    padding-left: 4px;
+    border-radius: 4px;
+    outline-color: rgba(255, 171, 16, 0.74);
 }
+
+input[type="text"]:hover{
+    outline-color: rgba(255, 171, 16, 0.247);
+}
+
 input[type="button"]{
+    font-family: 'Fira Sans', sans-serif;
     display: inline-block;
-    width: 5%;
+    width: 18%;
+    height: 36px;
+    margin-left: 1%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: 0.3s;
+    cursor: pointer;
+    outline: none;
+    outline-color: rgba(255, 171, 16, 0.74);
+}
+
+input[type="button"]:hover{
+    color: #fff;
+    background: rgb(0, 0, 0);
+    border: 2px solid black;
+    border-radius: 4px;
 }

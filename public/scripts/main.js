@@ -31,11 +31,12 @@ function changeRoom(roomUri){
         assocMassive = JSON.parse(message['data']);
         console.log(assocMassive);
         printMessage(assocMassive);
+        window.scrollBy(0,80);
     }
 }
 
 function printMessage(msg){
-    messages.insertAdjacentHTML('beforeend', '<div><span style="color: rgb('+msg["color"][0]+','+msg["color"][1]+','+msg["color"][2]+');">' + msg["user"] + ": </span><span>" + msg["text"] + "</span></div>");
+    messages.insertAdjacentHTML('beforeend', '<div><span style="color: rgb('+msg["color"][0]+','+msg["color"][1]+','+msg["color"][2]+'); margin-left:4px;">' + msg["user"] + ": </span><span>" + msg["text"] + "</span></div>");
 }
 
 function sendMsg() {
@@ -52,5 +53,17 @@ function sendMsg() {
 
 sendButton.onclick = sendMsg;
 textField.onkeypress = function (e) {
-    if (e.keyCode==13) sendMsg ();
+    if (e.keyCode==13){
+        sendMsg ();
+        window.scrollBy(0,80);
+    }
 }
+/*
+function scrollToEndPage(pix) {
+    console.log( " scrollHeight:" + document.body.scrollHeight);
+    for (var i = 0; i < pix; i++) {
+        window.scrollBy(0,i);
+        console.log(i);
+    }
+}
+*/
