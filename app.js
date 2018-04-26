@@ -12,46 +12,38 @@ var connections = 0
 var mainRoom = [];
 var echoRoom = [];
 
-/*app.ws('/echo', function(ws, req) {
-    ws.on('message', function(msg) {
-      ws.send(msg);
-    });                             echo
-  });*/
-  app.get('/', function (req, res) {
+app.get('/', function (req, res) {
     res.sendfile('public/index.html');
-  });
+});
 
-  app.ws('/echo', function(ws, req) {
-      echoRoom.push(ws);
-      ws.on('message',function(msg){
-        console.log(msg+' '+echoRoom.length+' in ECHO');
-        echoRoom.forEach(clientEcho=>clientEcho.send(msg));
-        //expressWs.getWss().clients.forEach(client => client.send(msg));
-    });
-    ws.on('close', function(statusCode,reason) {
-        console.log('The connection in echoRoom was closed!'+' REASON: '+reason);
-        for (var i = 0; i < echoRoom.length; i++) {
-            console.log(i);
-            if(echoRoom[i] == ws) 
-            {
-                echoRoom[i] = '.';
-                echoRoom.sort();
-                if(echoRoom[0] == '.')
-                    echoRoom.shift();
-            }
+app.ws('/echo', function(ws, req) {
+    echoRoom.push(ws);
+    ws.on('message',function(msg){
+    console.log(msg+' '+echoRoom.length+' in ECHO');
+    echoRoom.forEach(clientEcho=>clientEcho.send(msg));
+    //expressWs.getWss().clients.forEach(client => client.send(msg));
+});
+
+ws.on('close', function(statusCode,reason) {
+    console.log('The connection in echoRoom was closed!'+' REASON: '+reason);
+    for (var i = 0; i < echoRoom.length; i++) {
+        console.log(i);
+        if(echoRoom[i] == ws) 
+        {
+            echoRoom[i] = '.';
+            echoRoom.sort();
+            if(echoRoom[0] == '.')
+                echoRoom.shift();
         }
-    });
-  });
-  // p.currentTarget.url
+    }
+});
+});
 
 app.ws('/',function(ws,req){
-    //console.log(ws);
-    //connectionTest = ws;
     mainRoom.push(ws);
     ws.on('message',function(msg){
         console.log(msg+' '+mainRoom.length+' in main');
         mainRoom.forEach(clientMain=>clientMain.send(msg));
-        //expressWs.getWss().clients.forEach(client => client.send(msg));
     });
     ws.on('close', function(statusCode,reason) {
         console.log('The connection in mainRoom was closed!'+' REASON: '+reason);

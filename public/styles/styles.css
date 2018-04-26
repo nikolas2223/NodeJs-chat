@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+/*@import url('https://fonts.googleapis.com/css?family=Fira+Sans');*/
 
 *{
     margin: 0;
+    font-family: 'Fira Sans', sans-serif;
 }
 
-.roomName{
-    text-decoration: none;
-    color:rgb(206, 100, 255);
-    padding-left: 25%;
-    padding-right: 25%;
+*::selection{
+    background: rgba(28, 238, 175, 0.473);
 }
-.roomName:hover{
-    background: rgb(235, 192, 113);
-    border-radius: 5px;
 
+hr{
+    padding-left: 1px;
+    height: 1px;
+    background: black;
 }
 
 body{
@@ -22,72 +21,93 @@ body{
     font-family: 'Fira Sans', sans-serif;
 }
 
-span::selection{
-    background: rgba(28, 238, 175, 0.473);
-}
 
 .content{
-    /*margin-top: 20px;*/
+    margin-top: 0px;
     margin-left: 24%;
     margin-right: 24%;
+    margin-bottom: 60px;
     width: 50%;
-    height: 80%;
-    /*position: absolute;  !IMPORTANT! CSS 2.1 pt 10.5.*/
+    min-height: calc(100vh - 60px);
+    height: auto;
+    background: rgb(255, 255, 255);
+    /*position: absolute;  /* !IMPORTANT! CSS 2.1 pt 10.5.*/
     display: block;
     border-left: 2px solid black;
     border-radius: 0px;
     float: left;
-}
-#mgs::selection{
-    background: rgba(28, 238, 175, 0.473);
 }
 
 #mgs{
     text-align: left;
     font-weight: bold;
     font-family: 'Fira Sans', sans-serif;
-    background: white;
+    background: rgb(255, 255, 255);
     display: block;
     width: 80%;
-    height: 80%;
+    min-height: 40vh;
+    height: auto;
     float: left;
-    border-right: 2px solid black;
     padding-top: 20px;
 }
 
 .rooms{
-    margin-top:20px;
-    margin-left: 41%;
-    width: 9%;    
-    height: 100%;
+    margin-top:0px;
+    margin-left: 0;
+    width: 10%;
+    left: 63.56vw;
+    font-family: 'Fira Sans', sans-serif;
+    min-height: calc(100vh - 60px);
+    height: auto;
     background: rgb(255, 255, 255);
     float: left;
     position: fixed;
-   /* border-left: 2px solid black;*/
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.roomName{
+    padding-top:2px;
+    padding-bottom: 2px;
+    width:100%;
+    display:block;
+    text-align:center;
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    transition:0.3s;
+    cursor: pointer;
+}
+.roomName:hover{
+    background: rgb(0, 0, 0);
+    color:white;
+    border-radius: 0px;
 }
 
 .inputs{
-    margin-top: 10px;
+    /*margin-top: calc(99vh-20);*/
     margin-left: 24%;
     margin-right: 24%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 50%;
     height: auto;
     display: block;
     border-radius: 4px;
-    position: sticky;
+    position: fixed;
     float: left;
+    bottom: 0px;
 }
 
 input[type="text"]{
     display: inline-block;
-    width: 79%;
+    width: 77%;
     height: 30px;
     border: 2px solid black;
     font-family: 'Fira Sans', sans-serif;
     padding-left: 4px;
     border-radius: 4px;
     outline-color: rgba(255, 171, 16, 0.74);
+    -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49); 
+    box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49);
 }
 
 input[type="text"]:hover{
@@ -99,14 +119,16 @@ input[type="button"]{
     display: inline-block;
     width: 18%;
     height: 36px;
-    margin-left: 1%;
+    margin-left: 2%;
     background: #fff;
     border: 2px solid black;
     border-radius: 4px;
     transition: 0.3s;
     cursor: pointer;
     outline: none;
-    outline-color: rgba(255, 171, 16, 0.74);
+    outline-color: rgba(255, 72, 16, 0.74);
+    -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49); 
+    box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49);
 }
 
 input[type="button"]:hover{
