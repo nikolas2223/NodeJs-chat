@@ -1,5 +1,11 @@
 /*@import url('https://fonts.googleapis.com/css?family=Fira+Sans');*/
-
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(public/fonts/va9E4kDNxMZdWfMOD5Vvk4jLeTY.woff2) format('woff2');
+    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
 *{
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
@@ -16,61 +22,72 @@ hr{
 }
 
 body{
-    background:rgb(255, 255, 255);
+    background:rgb(215, 215, 215);
     height: 100%;
     font-family: 'Fira Sans', sans-serif;
 }
 
+.bigBlock{
+	margin-top:0px !important;
+	margin-left:auto;
+	margin-right:auto;
+	width: 700px;
+	height:98vh;
+	padding-top:2vh;
+	background:#e2d5db;
+	display:block;
+	border-radius:0px;
+	-webkit-box-shadow: 0px 0px 40px 13px rgba(0,0,0,0.31);
+	-moz-box-shadow: 0px 0px 40px 13px rgba(0,0,0,0.31);
+	box-shadow: 0px 0px 40px 13px rgba(0,0,0,0.31);
+}
 
 .content{
-    margin-top: 0px;
-    margin-left: 24%;
-    margin-right: 24%;
-    margin-bottom: 60px;
-    width: 50%;
-    min-height: calc(100vh - 60px);
-    height: auto;
-    background: rgb(255, 255, 255);
+	margin-top:auto;
+	margin-left:auto;
+	margin-right:auto;
+    width:96%;
+	height:88%;
+    /*background: gray;*/
     /*position: absolute;  /* !IMPORTANT! CSS 2.1 pt 10.5.*/
     display: block;
-    border-left: 2px solid black;
     border-radius: 0px;
-    float: left;
 }
 
 #mgs{
+	margin:4px;
     text-align: left;
-    font-weight: bold;
+    font-weight: normal;
     font-family: 'Fira Sans', sans-serif;
-    background: rgb(255, 255, 255);
+    background: white;
     display: block;
-    width: 80%;
-    min-height: 40vh;
-    height: auto;
-    float: left;
-    padding-top: 20px;
+	border:2px solid #5b5b5b;
+	border-radius:2px;
+    width: 77%;
+    min-height:98%;
+	max-height:100%;
+	float:left;
+    overflow: auto;
+    padding-top: 0px;
 }
 
 .rooms{
-    margin-top:0px;
-    margin-left: 0;
-    width: 10%;
-    left: 63.56vw;
+	margin:4px;
+    width: 130px;
     font-family: 'Fira Sans', sans-serif;
-    min-height: calc(100vh - 60px);
-    height: auto;
-    background: rgb(255, 255, 255);
-    float: left;
-    position: fixed;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+    max-height:80vh;
+    background: white;
+	border:2px solid #5b5b5b;
+	border-radius:2px;
+    float: right;
 }
 
 .roomName{
     padding-top:2px;
     padding-bottom: 2px;
-    width:100%;
+    width:auto;
     display:block;
+    border-top: 1px solid #5b5b5b;
     text-align:center;
     text-decoration: none;
     color:rgb(0, 0, 0);
@@ -84,30 +101,33 @@ body{
 }
 
 .inputs{
-    /*margin-top: calc(99vh-20);*/
-    margin-left: 24%;
-    margin-right: 24%;
-    margin-bottom: 10px;
-    width: 50%;
+	margin-left:2%;
+	margin-top: 15px;
+	width:75%;
     height: auto;
     display: block;
-    border-radius: 4px;
-    position: fixed;
-    float: left;
-    bottom: 0px;
+	background:none;
+    border-radius: 0px;
+    float:left;
+    /*outline-color: rgba(255, 171, 16, 0.74);
+    -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49); 
+    box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49);*/
 }
 
 input[type="text"]{
-    display: inline-block;
-    width: 77%;
+	outline-color: rgba(255, 171, 16, 0.247);
+	margin-left:3px;
+    display: block;
+	width:90%;
     height: 30px;
-    border: 2px solid black;
+    border-right:0px solid transparent;
+	border-top: 2px solid #5b5b5b;
+	border-left:2px solid #5b5b5b;
+	border-bottom: 2px solid #5b5b5b;
     font-family: 'Fira Sans', sans-serif;
-    padding-left: 4px;
-    border-radius: 4px;
-    outline-color: rgba(255, 171, 16, 0.74);
-    -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49); 
-    box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49);
+    padding-left: 6px;
+    border-radius: 1px;
+	float:left;
 }
 
 input[type="text"]:hover{
@@ -115,25 +135,24 @@ input[type="text"]:hover{
 }
 
 input[type="button"]{
+	margin:0;
+	text-align:center;
+	font-size:9px;
     font-family: 'Fira Sans', sans-serif;
-    display: inline-block;
-    width: 18%;
+    display:block;
+    width: auto;
     height: 36px;
-    margin-left: 2%;
     background: #fff;
-    border: 2px solid black;
-    border-radius: 4px;
+    border:2px solid #5b5b5b;
+    border-radius: 1px;
     transition: 0.3s;
     cursor: pointer;
     outline: none;
-    outline-color: rgba(255, 72, 16, 0.74);
-    -webkit-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49); 
-    box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.49);
+	float:rigth;
 }
 
 input[type="button"]:hover{
     color: #fff;
     background: rgb(0, 0, 0);
-    border: 2px solid black;
-    border-radius: 4px;
+    border: 1px solid black;
 }

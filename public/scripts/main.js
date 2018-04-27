@@ -1,9 +1,9 @@
 
-var sendButton = document.querySelector("#sendButton");
-var textField = document.querySelector("#txt");
-var messages = document.querySelector("#mgs");
+const sendButton = document.querySelector("#sendButton");
+const textField = document.querySelector("#txt");
+const messages = document.querySelector("#mgs");
 var name = prompt("Имя пользователя:","Name");
-var color = [Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.random()*255)];
+const color = [Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.random()*255)];
 console.log("color: ",color);
 
 var webSocket;
@@ -21,8 +21,8 @@ function changeRoom(roomUri)
           console.log('OOPS, SMTH IS WRONG');
           messages.insertAdjacentHTML('beforeend','\n ***HELLO THERE***');
     }
-    window.scrollBy(0,1000);
-    webSocket = new WebSocket('ws://localhost:3000/'+roomUri);
+    messages.scrollBy(0,1000);
+    webSocket = new WebSocket(location.href.replace(/^http/,'ws')+roomUri);
 
     webSocket.onopen = function () 
     {
@@ -38,10 +38,10 @@ function changeRoom(roomUri)
     webSocket.onmessage = function (message)
     {
         console.log('сервер: ', message);
-        assocMassive = JSON.parse(message['data']);
+        let assocMassive = JSON.parse(message['data']);
         console.log(assocMassive);
         printMessage(assocMassive);
-        window.scrollBy(0,100);
+        messages.scrollBy(0,100);
     }
 }
 
@@ -58,7 +58,7 @@ function printMessage(msg)
 
 function sendMsg() 
 {
-    message = textField.value;
+    let message = textField.value;
     if(message!="")
     {
         webSocket.send(JSON.stringify({
@@ -76,6 +76,6 @@ textField.onkeypress = function (e)
     if (e.keyCode==13)
     {
         sendMsg ();
-        window.scrollBy(0,100);
+        messages.scrollBy(0,100);
     }
 }

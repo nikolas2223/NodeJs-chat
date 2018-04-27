@@ -26,13 +26,13 @@ app.ws('/echo', function(ws, req) {
 
 ws.on('close', function(statusCode,reason) {
     console.log('The connection in echoRoom was closed!'+' REASON: '+reason);
-    for (var i = 0; i < echoRoom.length; i++) {
+    for (let i = 0; i < echoRoom.length; i++) {
         console.log(i);
         if(echoRoom[i] == ws) 
         {
             echoRoom[i] = '.';
             echoRoom.sort();
-            if(echoRoom[0] == '.')
+            if(echoRoom[0] == '.' )
                 echoRoom.shift();
         }
     }
@@ -47,7 +47,7 @@ app.ws('/',function(ws,req){
     });
     ws.on('close', function(statusCode,reason) {
         console.log('The connection in mainRoom was closed!'+' REASON: '+reason);
-        for (var i = 0; i < mainRoom.length; i++) {
+        for (let i = 0; i < mainRoom.length; i++) {
             console.log(i);
             if(mainRoom[i] == ws) 
             {

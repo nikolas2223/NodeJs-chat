@@ -5,17 +5,19 @@
             <script src="scripts/main.js" defer></script>
     </head>
     <body>
-            <div class="content">
-                <div id="mgs"></div>
-                <div class="rooms">Rooms<hr>
-                    <br>
-                    <a class="roomName" onclick="changeRoom('');">main</a>
-                    <a class="roomName" onclick="changeRoom('echo');">echo</a>
-                </div>
-            </div>
-            <div class="inputs">
-                <input type="text" id="txt" placeholder="Message...">
-                <input type="button" value="SEND" id="sendButton">
-            </div>
+			<div class="bigBlock">
+				<div class="content">
+					<div id="mgs"></div>
+					<div class="rooms">Rooms
+						<br>
+						<a class="roomName" onclick="changeRoom('');">main</a>
+						<a class="roomName" onclick="changeRoom('echo');">echo</a>
+					</div>
+				</div>
+				<div class="inputs">
+					<input tabindex="0" type="text" id="txt" placeholder="Message...">
+					<input type="button" value="SEND" id="sendButton">
+				</div>
+			</div>
     </body>
 </html>
